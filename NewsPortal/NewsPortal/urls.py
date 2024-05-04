@@ -1,11 +1,9 @@
-from django.urls import path
-
-from .views import PostsList, PostDetail
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
     
-   path('', PostsList.as_view(), name='news_list'),
-   path('<int:pk>/', PostsList.as_view(), name='Posts'),
-   path('search/', PostDetail.as_view(), name='Post')
+   path('admin', admin.site.urls),
+   path('news/', include('Portal_app.urls')),
 
 ]
